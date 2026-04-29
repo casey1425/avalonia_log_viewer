@@ -24,9 +24,9 @@
         </StackPanel>
 
         <!-- 중단: 로그 출력 영역 -->
-        <!-- ItemsSource="{Binding LogMessages}"를 통해 리스트의 데이터가 화면에 출력됩니다 -->
         <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1" CornerRadius="3">
-            <ListBox Background="#F0F0F0" ItemsSource="{Binding LogMessages}" />
+            <!-- x:Name="LogListBox" 를 추가해서 C# 코드에서 부를 수 있게 이름을 지어줌 -->
+            <ListBox x:Name="LogListBox" Background="#1E1E1E" Foreground="#D4D4D4" ItemsSource="{Binding LogMessages}" />
         </Border>
 
         <!-- 하단: 메시지 전송 영역 -->
