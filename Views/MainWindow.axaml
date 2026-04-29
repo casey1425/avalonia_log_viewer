@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:csharp.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
+        x:Class="csharp.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="통신 로그 뷰어"
+        Width="600" Height="450">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid RowDefinitions="Auto, *, Auto" Margin="10">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+            <TextBox Watermark="IP 주소 (예: 127.0.0.1)" Width="150"/>
+            <TextBox Watermark="포트" Width="80"/>
+            <Button Content="연결" HotKey="Enter"/>
+            <Button Content="연결 해제" Foreground="Red"/>
+        </StackPanel>
+
+        <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1" CornerRadius="3">
+            <ListBox Background="#F0F0F0">
+                <ListBoxItem>프로그램이 시작되었습니다.</ListBoxItem>
+                <ListBoxItem>연결 대기 중...</ListBoxItem>
+            </ListBox>
+        </Border>
+
+        <Grid Grid.Row="2" ColumnDefinitions="*, Auto" Margin="0,10,0,0">
+            <TextBox Grid.Column="0" Watermark="보낼 메시지를 입력하세요..." Margin="0,0,10,0"/>
+            <Button Grid.Column="1" Content="전송" Width="80"/>
+        </Grid>
+    </Grid>
+</Window>
